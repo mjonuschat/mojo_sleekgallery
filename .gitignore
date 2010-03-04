@@ -1,0 +1,9 @@
+.buildpath
+.settings
+.project
+.cache
+.DS_Store
+._*
+Thumbs.db
+.bak
+doc/*

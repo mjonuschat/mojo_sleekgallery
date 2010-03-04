@@ -1,0 +1,35 @@
+/* div with the gallery inside */
+#ext-thumbnails{
+  height:590px;
+  text-align:center;
+  margin:0 20px;
+  border:1px solid #333;
+  width:510px;
+  padding:5px;
+  background-color:#eee;
+}
+
+/* div around the imgs */
+.carouselWrapper {
+
+}
+
+/* single thumbnail */
+.thumbnail{
+  float:left;
+  padding:4px;
+  border:1px solid #ccc;
+  background:#fff;
+  margin:5px;
+}
+
+/* label = title of an image */
+.label {
+  font-weight:bold;
+}
+
+/* number of the image */
+.number {
+  font-weight:normal;
+  font-style:italic;
+}

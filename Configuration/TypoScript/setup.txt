@@ -1,0 +1,535 @@
+plugin.tx_mojosleekgallery_pi1 {
+    thumb = IMG_RESOURCE
+    thumb {
+        file.maxW = 100
+        file.maxH = 75
+    }
+
+    big = IMG_RESOURCE
+    big {
+        file.maxW = 460
+        file.maxH = 345
+    }
+
+    big2 = IMG_RESOURCE
+    big2 {
+        file = GIFBUILDER
+        file {
+            XY = [10.w],[10.h]
+            10=IMAGE
+            10 {
+                file.maxW=460
+                file.maxH=345
+            }
+            20=TEXT
+            20 {
+                text.data = date:Y
+                text.noTrimWrap = |(c) | by somebody |
+                align=right
+                offset=0,[10.h]-45
+                fontSize=10
+                fontColor=#ffffff
+                #niceText=1
+            }
+        }
+    }
+
+    lightbox = IMG_RESOURCE
+    lightbox {
+        file.maxW = 800
+        file.maxH = 600
+    }
+
+    lightbox2 = IMG_RESOURCE
+    lightbox2 {
+        file = GIFBUILDER
+        file {
+            XY = [10.w],[10.h]
+            10=IMAGE
+            10 {
+                file.maxW=800
+                file.maxH=600
+            }
+            20=TEXT
+            20 {
+                text.data = date:Y
+                text.noTrimWrap = |(c) | by somebody |
+                align=right
+                offset=0,[10.h]-10
+                fontSize=10
+                fontColor=#ffffff
+                #niceText=1
+            }
+        }
+    }
+
+    pathTojQuery = EXT:mojo_sleekgallery/Resources/Public/JavaScript/jquery.min.js
+    pathToScrollToJS = EXT:mojo_sleekgallery/Resources/Public/JavaScript/jquery.scrollTo.min.js
+    pathToSleekGalleryJS = EXT:mojo_sleekgallery/Resources/Public/JavaScript/jquery.sleekgallery.js
+    pathToSleekGalleryCSS = EXT:mojo_sleekgallery/Resources/Public/CSS/jquery.sleekgallery.css
+    pathToFancyboxJS = EXT:mojo_sleekgallery/Resources/Public/JavaScript/jquery.fancybox.pack.js
+    pathToFancyboxCSS = EXT:mojo_sleekgallery/Resources/Public/CSS/jquery.fancybox.css
+
+    settings = {$plugin.tx_mojosleekgallery.settings}
+    pid =
+    height = 230
+    width = 330
+    minimumImages = 2
+    noscript = 1
+    enableSaveButton = 0
+    enablePrintButton = 0
+
+    lightbox = 0
+    showThumbs = 0
+    arrows = 0
+    hideInfoPane = 0
+    thumbOpacity =
+    slideInfoZoneOpacity =
+    thumbSpacing =
+}
+
+temp.origimg < tt_content.image.20
+temp.origpic < tt_content.textpic.20
+
+includeLibs.something2 = EXT:mojo_sleekgallery/Classes/MoJo/SleekGaller/Enabler.php
+
+temp.maxW = TEXT
+temp.maxW.field=imagewidth
+temp.maxH = TEXT
+temp.maxH.field=imageheight
+
+temp.singleImage = COA
+temp.singleImage {
+    stdWrap.outerWrap.cObject = COA
+    stdWrap.outerWrap.cObject {
+        10 = TEXT
+        10.value = <div class="image imageElement" style="
+        20 = TEXT
+        20.dataWrap = float:left;text-align:{field:imagecaption_position};
+        20.if.isFalse.field = image_noRows
+        30 = TEXT
+        30.dataWrap = text-align:{field:imagecaption_position};
+        30.if.isTrue.field = image_noRows
+        33 = TEXT
+        33.value = margin-top:{$styles.content.imgtext.rowSpace}px;
+        33.if.isTrue.data = register:nextRow
+        40 = TEXT
+        40.value = min-height:1px;">|</div>
+    }
+
+    # Thumbnail
+    10 = IMAGE
+    10 {
+        file {
+            import = uploads/pics/
+            import.current = 1
+            maxW = {$plugin.tx_mojosleekgallery.thumbWidth}
+            maxH = {$plugin.tx_mojosleekgallery.thumbHeight}
+        }
+        params = class="thumbnail"
+    }
+
+    # Large
+    11 = IMAGE
+    11 {
+        file {
+            import = uploads/pics/
+            import.current = 1
+          maxW < temp.maxW
+          maxH < temp.maxH
+
+        }
+        params = class="full"
+    }
+    # Lightbox
+    12 = IMG_RESOURCE
+    12 {
+        file {
+            import = uploads/pics/
+            import.current = 1
+            maxW = {$plugin.tx_mojosleekgallery.lightboxWidth}
+            maxH = {$plugin.tx_mojosleekgallery.lightboxHeight}
+        }
+        stdWrap.wrap = <a href="|" title="open image" class="open"></a>
+    }
+    20 = TEXT
+    20 {
+        field = imagecaption
+        listNum.splitChar = 13
+        listNum.stdWrap.data = register:SPLIT_COUNT
+        wrap = <p>|</p>
+    }
+    30 = TEXT
+    30 {
+        field =  titleText
+        listNum.splitChar = 13
+        listNum.stdWrap.data = register:SPLIT_COUNT
+        wrap = <h3>|</h3>
+    }
+}
+
+tt_content.newimage = COA
+tt_content.newimage {
+    5 = LOAD_REGISTER
+    5 {
+        imageblockMaxWidth.cObject = COA
+        imageblockMaxWidth.cObject {
+            10 = TEXT
+            10 {
+                value = {$styles.content.imgtext.maxW}
+                if.value = image
+                if.equals.field = CType
+            }
+            20 = COA
+            20 {
+                10 = TEXT
+                10 {
+                    value = {$styles.content.imgtext.maxWInText}
+                    if.isTrue = {$styles.content.imgtext.maxWInText}
+                }
+                20 = TEXT
+                20 {
+                    value = {$styles.content.imgtext.maxW}/2
+                    prioriCalc = intval
+                    if.isFalse = {$styles.content.imgtext.maxWInText}
+                }
+                if.value = textpic
+                if.equals.field = CType
+            }
+        }
+        singleimageWidth1.cObject = TEXT
+        singleimageWidth1.cObject {
+            dataWrap = {register:imageblockMaxWidth}/{field:imagecols}-{field:imageborder}*{$styles.content.imgtext.borderThick}*2-{$styles.content.imgtext.colSpace}+{$styles.content.imgtext.colSpace}/{field:imagecols}
+        }
+        singleimageWidth.cObject = COA
+        singleimageWidth.cObject {
+            10 = TEXT
+            10.data = register:singleimageWidth1
+            10.prioriCalc = intval
+            10.if.value.data = register:singleimageWidth1
+            10.if.value.prioriCalc = intval
+            10.if.isLessThan.field = imagewidth
+            10.if.negate = 1
+            20 = TEXT
+            20.field = imagewidth
+            20.if.value.data = register:singleimageWidth1
+            20.if.value.prioriCalc = intval
+            20.if.isLessThan.field = imagewidth
+        }
+        imageblockWidth.cObject = TEXT
+        imageblockWidth.cObject {
+            dataWrap = ({register:singleimageWidth}+{field:imageborder}*{$styles.content.imgtext.borderThick}*2+{$styles.content.imgtext.colSpace})*{field:imagecols}-{$styles.content.imgtext.colSpace}
+        }
+        imageblockWidth.prioriCalc = 1
+        textblockPadding.cObject = TEXT
+        textblockPadding.cObject {
+            dataWrap = {register:imageblockWidth}+{$styles.content.imgtext.textMargin}
+        }
+        textblockPadding.prioriCalc = intval
+    }
+    10 = CASE
+    10 {
+        if.isFalse.field = image_noRows
+        key.field = imagecols
+        default = TEXT
+        default {
+            field = image
+            split {
+                token = ,
+                cObjNum = 1
+                1 {
+                    10 = LOAD_REGISTER
+                    10 {
+                        imageLoader.cObject = COA
+                        imageLoader.cObject {
+                            5 = TEXT
+                            5.data = register:imageLoader
+                            10 < temp.singleImage
+                        }
+                    }
+                }
+            }
+        }
+    }
+    20 = CASE
+    20 {
+        if.isTrue.field = image_noRows
+        key.field = imagecols
+        default = TEXT
+        default {
+            field = image
+            split {
+                token = ,
+                cObjNum = 1
+                1 {
+                    10 = LOAD_REGISTER
+                    10 {
+                        imageLoader1.cObject = COA
+                        imageLoader1.cObject {
+                            5 = TEXT
+                            5.data = register:imageLoader1
+                            10 < temp.singleImage
+                            10.10.file.width.data = register:singleimageWidth
+                            10.10.file.width.wrap = |m
+                            10.stdWrap.outerWrap.cObject.35 = TEXT
+                            10.stdWrap.outerWrap.cObject.35 {
+                                value = margin-top:{$styles.content.imgtext.rowSpace}px;
+                                if.isTrue.data = register:nextRow1
+                            }
+                            10.20.outerWrap.cObject.25 = TEXT
+                            10.20.outerWrap.cObject.25 {
+                                dataWrap = width:{register:singleimageWidth}px;
+                            }
+
+                        }
+                    }
+                    20 = LOAD_REGISTER
+                    20.nextRow1 = 1
+                }
+            }
+        }
+
+    }
+    30 = COA
+    30 {
+        if.isTrue.field = image_noRows
+        10 = LOAD_REGISTER
+        10 {
+            imageLoader.cObject = COA
+            imageLoader.cObject {
+                if.isTrue.field = image_noRows
+                10 = TEXT
+                10.data = register:imageLoader1
+                10.required = 1
+                10.wrap = <div class="imageCol" style="float:left;min-height:1px;">|</div>
+                20 < .10
+                20.data = register:imageLoader2
+                20.wrap = <div class="imageCol" style="float:left;min-height:1px; margin-left:{$styles.content.imgtext.colSpace}px;">|</div>
+                30 < .20
+                30.data = register:imageLoader3
+                40 < .20
+                40.data = register:imageLoader4
+                50 < .20
+                50.data = register:imageLoader5
+                60 < .20
+                60.data = register:imageLoader6
+                70 < .20
+                70.data = register:imageLoader7
+                80 < .20
+                80.data = register:imageLoader8
+                90 = TEXT
+                90.value = <div style="clear:both;height:{$styles.content.imgtext.textMargin}px;"></div>
+            }
+        }
+    }
+    40 = TEXT
+    40.data = register:imageLoader
+    40.required = 1
+    40.outerWrap.cObject = COA
+    40.outerWrap.cObject {
+        10 = TEXT
+        10.value = <div class="imageblock" style="
+        20 = TEXT
+        20.dataWrap = width:{register:imageblockWidth}px;
+        30 = TEXT
+        30.value = min-height:1px;
+        40 = CASE
+        40 {
+            key.field = imageorient
+            default = TEXT
+            default.value =
+            1 < .default
+            2 < .default
+            8 = TEXT
+            8.value = margin-top:{$styles.content.imgtext.textMargin}px;
+            9 < .8
+            10 < .8
+            17 = COA
+            17 {
+                10 = TEXT
+                10.value = margin-left:{$styles.content.imgtext.textMargin}px;
+            }
+            18 = COA
+            18 {
+                10 = TEXT
+                10.value = margin-right:{$styles.content.imgtext.textMargin}px;
+            }
+            25 < .default
+            26 < .default
+        }
+        70 = TEXT
+        70.value = ">
+
+        77 = TEXT
+        77.dataWrap (
+            <script type="text/javascript">/* <![CDATA[ */
+                function startGallery{field:uid}()
+        )
+        78 = TEXT
+        78.value = {
+
+        79 = TEXT
+        79.dataWrap (
+                    var sleekGallery{field:uid} = jQuery('#sleekGallery{field:uid}').sleekGallery(), |
+        )
+        79.value = {
+
+        80 = TEXT
+        80.field = longdescURL
+        80.ifEmpty = {$plugin.tx_mojosleekgallery.settings}
+        80.wrap = | }); /* var mylightbox = new LightboxSleekGallery(); */}
+        81 = TEXT
+        81.dataWrap (
+                 jQuery(document).ready(function() {
+                    startGallery{field:uid}();
+                 });
+            </script>
+            <div class="content"><div class="sleekGallery" id="sleekGallery{field:uid}">
+        )
+
+        88= TEXT
+        88.value = |</div></div>
+
+        89 = TEXT
+        89.dataWrap (
+            <div class="mojosleekgallery-caption" style="text-align:{field:imagecaption_position};">{field:altText}</div></div>
+        )
+
+        90 = LOAD_REGISTER
+        90 {
+            imageblockWidth1.value =
+            imageblockWidth.value =
+            imageblockMaxWidth.value =
+            singleimageWidth1.value =
+            singleimageWidth.value =
+            textblockPadding1.value =
+            textblockPadding.value =
+            imageLoader.value =
+            imageLoader1.value =
+            imageLoader2.value =
+            imageLoader3.value =
+            imageLoader4.value =
+            imageLoader5.value =
+            imageLoader6.value =
+            imageLoader7.value =
+            imageLoader8.value =
+            nextRow.value =
+            nextRow1.value =
+            nextRow2.value =
+            nextRow3.value =
+            nextRow4.value =
+            nextRow5.value =
+            nextRow6.value =
+            nextRow7.value =
+            nextRow8.value =
+        }
+    }
+}
+tt_content.newtextpic = COA
+tt_content.newtextpic {
+    2 = USER
+    2.userFunc = tx_mojosleekgallery_enabler->user_sleekgallery
+
+    10 = COA
+    10 {
+        if.isInList.field = imageorient
+        if.value = 0,1,2,17,18,25,26
+        10 < tt_content.newimage
+        10.stdWrap.outerWrap.cObject = TEXT
+        10.stdWrap.outerWrap.cObject {
+            if.isFalse.field = imageorient
+            value = <div style="text-align: center">|</div>
+        }
+        10.40.outerWrap.cObject {
+            35 = CASE
+            35 {
+                key.field = imageorient
+                default = TEXT
+                default.value = margin:0 auto;
+                1 = TEXT
+                1.value = float:right;
+                2 = TEXT
+                2.value = float:left;
+                17 = TEXT
+                17.value = float:right;
+                18 = TEXT
+                18.value = float:left;
+                25 = TEXT
+                25.value = float:right;
+                26 = TEXT
+                26.value = float:left;
+            }
+        }
+        10.50 = TEXT
+        10.50 {
+            if.isInList.field = imageorient
+            if.value = 0,1,2
+            value = <div style="clear:both;"></div>
+        }
+        20 = COA
+        20 {
+            stdWrap.outerWrap.cObject = COA
+            stdWrap.outerWrap.cObject {
+                if.isInList.field = imageorient
+                if.value = 25,26
+                10 = TEXT
+                10.dataWrap = <div style="padding-right:{register:textblockPadding}px;">
+                10.if.value = 25
+                10.if.equals.field = imageorient
+                20 = TEXT
+                20.dataWrap = <div style="padding-left:{register:textblockPadding}px;">
+                20.if.value = 26
+                20.if.equals.field = imageorient
+                30 = TEXT
+                30.value = |</div>
+            }
+            10 = COA
+            10 {
+                10 < lib.stdheader
+                if.isInList.field = imageorient
+                if.value = 25,26
+            }
+            20 < tt_content.text.20
+            30 = TEXT
+            30.value = <div style="clear: both;"></div>
+        }
+    }
+    20 = COA
+    20 {
+        if.isInList.field = imageorient
+        if.value = 8,9,10
+        10 = COA
+        10 {
+            20 < tt_content.text.20
+        }
+        20 < tt_content.newimage
+        20.stdWrap.outerWrap.cObject = TEXT
+        20.stdWrap.outerWrap.cObject {
+            if.isInList.field = imageorient
+            if.value = 8
+            value = <div style="text-align:center;">|</div>
+        }
+        20.40.outerWrap.cObject {
+            35 = CASE
+            35 {
+                key.field = imageorient
+                8 = TEXT
+                8.value = margin:0 auto;
+                9 = TEXT
+                9.value = float:right;
+                10 = TEXT
+                10.value = float:left;
+            }
+        }
+        20.50 = TEXT
+        20.50.value = <div style="clear:both;"></div>
+    }
+}
+
+tt_content.textpic.20 = CASE
+tt_content.textpic.20 {
+    key.field = tx_mojosleekgallery_enable
+    default <temp.origpic
+    0 < temp.origpic
+    1 < tt_content.newtextpic
+}

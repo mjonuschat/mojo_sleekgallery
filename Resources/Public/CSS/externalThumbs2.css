@@ -1,0 +1,20 @@
+.tx-mojosleekgallery-pi1 {
+  float:left;
+}
+
+#externalthumbs {
+  float:left;
+  width:200px;
+}
+
+#externalthumbs .label {
+  display:none;
+}
+.carouselInner {
+  width:205px;
+}
+
+.carouselInner .thumbnail {
+  float:right;
+  padding-bottom:10px;
+}

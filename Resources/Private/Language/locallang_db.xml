@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+    <meta type="array">
+        <type>database</type>
+        <description>Language labels for database tables/fields belonging to extension 'mojo_sleekgallery'</description>
+    </meta>
+    <data type="array">
+        <languageKey index="default" type="array">
+            <label index="tt_content.list_type_pi1">SleekGallery</label>
+            <label index="tx_mojosleekgallery_image">SleekGallery Image</label>
+            <label index="tx_mojosleekgallery_image.title">Title</label>
+            <label index="tx_mojosleekgallery_image.description">Description</label>
+            <label index="tx_mojosleekgallery_image.image">Image</label>
+            <label index="tt_content.tx_mojosleekgallery_enable">Activate SleekGallery</label>
+        </languageKey>
+        <languageKey index="de" type="array">
+            <label index="tt_content.list_type_pi1">SleekGallery</label>
+            <label index="tx_mojosleekgallery_image">SleekGallery Bild</label>
+            <label index="tx_mojosleekgallery_image.title">Titel</label>
+            <label index="tx_mojosleekgallery_image.description">Beschreibung</label>
+            <label index="tx_mojosleekgallery_image.image">Bild</label>
+            <label index="tt_content.tx_mojosleekgallery_enable">SleekGallery aktivieren</label>
+        </languageKey>
+        <languageKey index="nl" type="array">
+            <label index="tt_content.list_type_pi1">SleekGallery</label>
+            <label index="tx_mojosleekgallery_image">SleekGallery afbeelding</label>
+            <label index="tx_mojosleekgallery_image.title">Titel</label>
+            <label index="tx_mojosleekgallery_image.description">Beschrijving</label>
+            <label index="tx_mojosleekgallery_image.image">Afbeelding</label>
+            <label index="tt_content.tx_mojosleekgallery_enable">SleekGallery aktiveren</label>
+        </languageKey>
+        <languageKey index="fr" type="array">
+            <label index="tt_content.list_type_pi1">SleekGallery</label>
+            <label index="tx_mojosleekgallery_image">SleekGallery Image</label>
+            <label index="tx_mojosleekgallery_image.title">Titre</label>
+            <label index="tx_mojosleekgallery_image.description">Description</label>
+            <label index="tx_mojosleekgallery_image.image">Image</label>
+            <label index="tt_content.tx_mojosleekgallery_enable">Activer SleekGallery</label>
+        </languageKey>
+
+    </data>
+</T3locallang>

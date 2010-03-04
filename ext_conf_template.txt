@@ -1,0 +1,5 @@
+# cat=basic; type=string; label=Split char records: Split character for a single record, default = line break
+splitRecord = \n
+
+# cat=basic; type=string; label=Split char comment: Split character for title & description, default = | (pipe)
+splitComment = |

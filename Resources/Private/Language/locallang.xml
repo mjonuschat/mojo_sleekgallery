@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+    <meta type="array">
+        <type>module</type>
+        <description>Language labels for plugin 'tx_mojosleekgallery_pi1'</description>
+    </meta>
+    <data type="array">
+        <!-- Default -->
+        <languageKey index="default" type="array">
+            <label index="pi1_title">SleekGallery - Gallery and Slideshow</label>
+            <label index="pi1_plus_wiz_description">A flexible gallery and slideshow to show images from directories, records and from inside a content element</label>
+            <!-- Flexforms -->
+            <label index="flexform.sheets.general.title">Settings</label>
+            <label index="flexform.sheets.general.mode">Mode</label>
+            <label index="flexform.sheets.general.mode.0">Images from a directory</label>
+            <label index="flexform.sheets.general.mode.1">Images from records</label>
+            <label index="flexform.sheets.general.mode.3">Images from DAM</label>
+            <label index="flexform.sheets.general.mode.4">Images from DAM (categories)</label>
+            <label index="flexform.sheets.general.time">Duration (ms)</label>
+            <label index="flexform.sheets.general.startingpoint">Path to the directory</label>
+            <label index="flexform.sheets.general.startingpointrecords">Startingpoint</label>
+            <label index="flexform.sheets.general.startingpointdam">Records</label>
+            <label index="flexform.sheets.general.startingpointdamcat">Records</label>
+            <label index="flexform.sheets.general.widthgallery">Width of gallery</label>
+            <label index="flexform.sheets.general.heightgallery">Height of gallery</label>
+            <label index="flexform.sheets.general.height">Height of image</label>
+            <label index="flexform.sheets.general.width">Width of image</label>
+            <label index="flexform.sheets.general.text">Description</label>
+
+            <!-- Advanced tab -->
+            <label index="flexform.sheets.advanced.title">Advanced settings</label>
+            <label index="flexform.sheets.advanced.lightbox">Use Lightbox</label>
+            <label index="flexform.sheets.advanced.arrows">Use Arrows</label>
+            <label index="flexform.sheets.advanced.showThumbs">Use Thumbs</label>
+            <label index="flexform.sheets.advanced.showPlay">Use Play/Pause-Button</label>
+            <label index="flexform.sheets.advanced.limitImagesDisplayed">Limit Images Displayed</label>
+            <label index="flexform.sheets.advanced.advancedsettings">Advanced configuration</label>
+            <label index="flexform.sheets.advanced.watermark">Use watermarks</label>
+
+            <label index="flexform.sheets.advanced.infopane">Hide SlideInfoZone</label>
+            <label index="flexform.sheets.advanced.thumbopacity">Opacity Thumbnails</label>
+            <label index="flexform.sheets.advanced.thumbspacing">Spacing Thumbnails</label>
+            <label index="flexform.sheets.advanced.slideinfozoneopacity">Opacity SlideInfoZone</label>
+            <label index="flexform.sheets.advanced.externalcontrol">Use external Control</label>
+
+            <label index="flexform.sheets.advanced.externalthumbs">External Thumbs div ID</label>
+
+            <!-- Plugin -->
+            <label index="textShowCarousel">Pictures</label>
+            <label index="errorIncludeStatic">Error! Please inlcude the TS in an ext.template. Take a look at the manual.</label>
+            <label index="textOpenImage">Open Image</label>
+
+        </languageKey>
+
+        <!-- German -->
+        <languageKey index="de" type="array">
+            <label index="pi1_title">SleekGallery - Gallery und Slideshow</label>
+            <label index="pi1_plus_wiz_description">Flexible Gallery und Slideshow, die Bilder aus Verzeichnissen, Datensätzen und von innerhalb eines Contentelements anzeigt</label>
+            <!-- Flexforms -->
+            <label index="flexform.sheets.general.title">Einstellungen</label>
+            <label index="flexform.sheets.general.mode">Modus</label>
+            <label index="flexform.sheets.general.mode.0">Bilder aus einem Verzeichnis</label>
+            <label index="flexform.sheets.general.mode.1">Bilder aus Datensätzen</label>
+            <label index="flexform.sheets.general.mode.3">Bilder aus DAM</label>
+            <label index="flexform.sheets.general.mode.4">Bilder aus DAM (Kategorien)</label>
+            <label index="flexform.sheets.general.time">Wechsel (ms)</label>
+            <label index="flexform.sheets.general.startingpoint">Pfad zu Bildern</label>
+            <label index="flexform.sheets.general.startingpointrecords">Ausgangspunkt</label>
+            <label index="flexform.sheets.general.startingpointdam">Datensätze</label>
+            <label index="flexform.sheets.general.startingpointdamcat">Datensätze</label>
+            <label index="flexform.sheets.general.height">Bildhöhe</label>
+            <label index="flexform.sheets.general.width">Bildbreite</label>
+            <label index="flexform.sheets.general.widthgallery">Galeriebreite</label>
+            <label index="flexform.sheets.general.heightgallery">Galeriehöhe</label>
+            <label index="flexform.sheets.general.text">Beschreibung</label>
+
+            <!-- Advanced tab -->
+            <label index="flexform.sheets.advanced.title">Erweiterte Einstellungen</label>
+            <label index="flexform.sheets.advanced.lightbox">Lightbox</label>
+            <label index="flexform.sheets.advanced.arrows">Navigation</label>
+            <label index="flexform.sheets.advanced.showThumbs">Thumbnails</label>
+            <label index="flexform.sheets.advanced.showPlay">Play/Pause-Button</label>
+            <label index="flexform.sheets.advanced.limitImagesDisplayed">max.Anzahl Bilder</label>
+            <label index="flexform.sheets.advanced.advancedsettings">Erweiterte Konfiguration</label>
+            <label index="flexform.sheets.advanced.watermark">Wasserzeichen</label>
+
+            <label index="flexform.sheets.advanced.infopane">SlideInfoZone verbergen</label>
+            <label index="flexform.sheets.advanced.thumbopacity">Deckkraft Thumbnails</label>
+            <label index="flexform.sheets.advanced.thumbspacing">Abstand Thumbnails</label>
+            <label index="flexform.sheets.advanced.slideinfozoneopacity">Deckkraft SlideInfoZone</label>
+            <label index="flexform.sheets.advanced.externalcontrol">Externe Steuerung</label>
+
+            <label index="flexform.sheets.advanced.externalthumbs">Externe Thumbnails div ID</label>
+
+            <!-- Plugin -->
+            <label index="textShowCarousel">Thumbnails</label>
+            <label index="errorIncludeStatic">Fehler! Es wurde vergessen das TS der Extension einzubinden! Ein Blick ins manual genügt.</label>
+            <label index="textOpenImage">Bild vergrößern</label>
+        </languageKey>
+
+        <!--Dutch -->
+        <languageKey index="nl" type="array">
+            <label index="pi1_title">SleekGallery - Gallery en slideshow</label>
+            <label index="pi1_plus_wiz_description">Flexibele gallery en slideshow, die afbeeldingen uit folders, records en vanuit content elementen kan tonen</label>
+
+            <!-- Flexforms -->
+            <label index="flexform.sheets.general.title">Settings</label>
+            <label index="flexform.sheets.general.mode">Mode</label>
+            <label index="flexform.sheets.general.mode.0">Afbeeldingen uit folder</label>
+            <label index="flexform.sheets.general.mode.1">Afbeeldingen uit records</label>
+            <label index="flexform.sheets.general.mode.3">Afbeeldingen uit de DAM</label>
+            <label index="flexform.sheets.general.mode.4">Afbeeldingen uit de DAM (categoriën)</label>
+            <label index="flexform.sheets.general.time">Duur (ms)</label>
+            <label index="flexform.sheets.general.startingpoint">Pad naar de folder</label>
+            <label index="flexform.sheets.general.startingpointrecords">Startpunt</label>
+            <label index="flexform.sheets.general.startingpointdam">Records</label>
+            <label index="flexform.sheets.general.startingpointdamcat">Records</label>
+            <label index="flexform.sheets.general.widthgallery">Breedte van de gallery</label>
+            <label index="flexform.sheets.general.heightgallery">Hoogte van de gallery</label>
+            <label index="flexform.sheets.general.height">Hoogte van de afbeelding</label>
+            <label index="flexform.sheets.general.width">Breedte van de afbeelding</label>
+            <label index="flexform.sheets.general.text">Beschrijving</label>
+
+            <!-- Advanced tab -->
+            <label index="flexform.sheets.advanced.title">Advanced settings</label>
+            <label index="flexform.sheets.advanced.lightbox">Gebruik Lightbox</label>
+            <label index="flexform.sheets.advanced.arrows">Gebruik arrows</label>
+            <label index="flexform.sheets.advanced.showThumbs">Gebruik thumbnails</label>
+            <label index="flexform.sheets.advanced.showPlay">Gebruik Play/Pause-Button</label>
+            <label index="flexform.sheets.advanced.limitImagesDisplayed">Max. aantal afbeeldingen</label>
+            <label index="flexform.sheets.advanced.advancedsettings">Advanced configuration</label>
+            <label index="flexform.sheets.advanced.watermark">Gebruik watermerken</label>
+
+            <label index="flexform.sheets.advanced.infopane">Verberg slideInfoZone</label>
+            <label index="flexform.sheets.advanced.thumbopacity">Opacity thumbnails</label>
+            <label index="flexform.sheets.advanced.thumbspacing">Spacing thumbnails</label>
+            <label index="flexform.sheets.advanced.slideinfozoneopacity">Opacity SlideInfoZone</label>
+            <label index="flexform.sheets.advanced.externalcontrol">Gebruik externe besturing</label>
+
+            <label index="flexform.sheets.advanced.externalthumbs">External Thumbs div ID</label>
+
+            <!-- Plugin -->
+            <label index="textShowCarousel">Thumbnails</label>
+            <label index="errorIncludeStatic">Fout! Voeg svp de TS in. Bekijk de handleiding</label>
+            <label index="textOpenImage">Vergroot de afbeelding</label>
+        </languageKey>
+
+        <!-- French -->
+        <languageKey index="fr" type="array">
+            <label index="pi1_title">SleekGallery - Galerie et diaporama</label>
+            <label index="pi1_plus_wiz_description">Une galerie flexible et un diaporama pour présenter les images issues de répertoires, de records et depuis des éléments de contenu</label>
+
+            <!-- Flexforms -->
+            <label index="flexform.sheets.general.title">Paramètres</label>
+            <label index="flexform.sheets.general.mode">Mode</label>
+            <label index="flexform.sheets.general.mode.0">Images d'un répertoire</label>
+            <label index="flexform.sheets.general.mode.1">Images de records</label>
+            <label index="flexform.sheets.general.mode.3">Images du DAM</label>
+            <label index="flexform.sheets.general.mode.4">Images du DAM (catégories)</label>
+            <label index="flexform.sheets.general.time">Durée (ms)</label>
+            <label index="flexform.sheets.general.startingpoint">Chemin vers le répertoire</label>
+            <label index="flexform.sheets.general.startingpointrecords">Point d'entrée</label>
+            <label index="flexform.sheets.general.startingpointdam">Records</label>
+            <label index="flexform.sheets.general.startingpointdamcat">Records</label>
+            <label index="flexform.sheets.general.widthgallery">Largeur de la galerie</label>
+            <label index="flexform.sheets.general.heightgallery">Hauteur de la galerie</label>
+            <label index="flexform.sheets.general.height">Hauteur de l'image</label>
+            <label index="flexform.sheets.general.width">Largeur de l'image</label>
+            <label index="flexform.sheets.general.text">Description</label>
+
+            <!-- Advanced tab -->
+            <label index="flexform.sheets.advanced.title">Paramètres avancés</label>
+            <label index="flexform.sheets.advanced.lightbox">Utiliser Lightbox</label>
+            <label index="flexform.sheets.advanced.arrows">Utiliser les flèches</label>
+            <label index="flexform.sheets.advanced.showThumbs">Utiliser les miniatures</label>
+            <label index="flexform.sheets.advanced.showPlay">Utiliser les boutons Play/Pause</label>
+            <label index="flexform.sheets.advanced.limitImagesDisplayed">Limiter les images affichées</label>
+            <label index="flexform.sheets.advanced.advancedsettings">Configuration avancée</label>
+            <label index="flexform.sheets.advanced.watermark">Utiliser le filigrane</label>
+
+            <label index="flexform.sheets.advanced.infopane">Masquer la SlideInfoZone</label>
+            <label index="flexform.sheets.advanced.thumbopacity">Opacité des miniatures</label>
+            <label index="flexform.sheets.advanced.thumbspacing">Espacement des miniatures</label>
+            <label index="flexform.sheets.advanced.slideinfozoneopacity">Opacité de la SlideInfoZone</label>
+            <label index="flexform.sheets.advanced.externalcontrol">Utiliser un contrôle externe</label>
+
+            <label index="flexform.sheets.advanced.externalthumbs">ID du div externe pour les miniatures</label>
+
+            <!-- Plugin -->
+            <label index="textShowCarousel">Images</label>
+            <label index="errorIncludeStatic">Erreur ! Veuillez inclure le TS dans l'extension. Jetez un oeil au manuel</label>
+            <label index="textOpenImage">Agrandir l'image</label>
+            <label index="authorWrap">(photo de |)</label>
+        </languageKey>
+
+    </data>
+</T3locallang>

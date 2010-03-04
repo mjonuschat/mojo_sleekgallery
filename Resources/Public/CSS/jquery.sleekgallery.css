@@ -1,0 +1,340 @@
+#sleekGallery,#sleekGallerySet,#flickrGallery {
+    width: 460px;
+    height: 345px;
+    z-index: 5;
+    border: 1px solid #000;
+}
+
+.sgGallery a {
+    outline: 0;
+}
+
+#flickrGallery {
+    width: 500px;
+    height: 334px;
+}
+
+#sleekGallery img.thumbnail,#sleekGallerySet img.thumbnail {
+    display: none;
+}
+
+.sgGallery {
+    overflow: hidden;
+    position: relative;
+}
+
+.sgGallery img {
+    border: 0;
+    margin: 0;
+}
+
+.sgGallery .slideElement {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: url('../Images/loading-bar-black.gif');
+}
+
+.sgGallery .loadingElement {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #000;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: url('../Images/loading-bar-black.gif');
+}
+
+.sgGallery .slideInfoZone {
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    margin: 0px;
+    left: 0;
+    bottom: 0;
+    height: 40px;
+    background: #333;
+    color: #fff;
+    text-indent: 0;
+    overflow: hidden;
+}
+
+* html .sgGallery .slideInfoZone {
+    bottom: -1px;
+}
+
+.sgGallery .slideInfoZone h2 {
+    padding: 0;
+    font-size: 80%;
+    margin: 0;
+    margin: 2px 5px;
+    font-weight: bold;
+    color: inherit;
+}
+
+.sgGallery .slideInfoZone p {
+    padding: 0;
+    font-size: 60%;
+    margin: 2px 5px;
+    color: #eee;
+}
+
+.sgGallery div.carouselContainer {
+    position: absolute;
+    height: 135px;
+    width: 100%;
+    z-index: 10;
+    margin: 0px;
+    left: 0;
+    top: 0;
+}
+
+.sgGallery a.carouselBtn {
+    position: absolute;
+    bottom: 0;
+    right: 30px;
+    height: 20px;
+    /*width: 100px; background: url('../Images/carousel_btn.gif') no-repeat;*/
+    text-align: center;
+    padding: 0 10px;
+    font-size: 13px;
+    background: #333;
+    color: #fff;
+    cursor: pointer;
+}
+
+.sgGallery .carousel {
+    position: absolute;
+    width: 100%;
+    margin: 0px;
+    left: 0;
+    top: 0;
+    height: 115px;
+    background: #333;
+    color: #fff;
+    text-indent: 0;
+    overflow: hidden;
+}
+
+.sgExtCarousel {
+    overflow: hidden;
+    position: relative;
+}
+
+.sgGallery .carousel .carouselWrapper,.sgExtCarousel .carouselWrapper {
+    position: absolute;
+    width: 100%;
+    height: 78px;
+    top: 10px;
+    left: 0;
+    overflow: hidden;
+}
+
+.sgGallery .carousel .carouselInner,.sgExtCarousel .carouselInner {
+    position: relative;
+}
+
+.sgGallery .carousel .carouselInner .thumbnail,.sgExtCarousel .carouselInner .thumbnail
+    {
+    cursor: pointer;
+    background: #000;
+    background-position: center center;
+    float: left;
+    border: solid 1px #fff;
+}
+
+.sgGallery .wall .thumbnail,.sgExtCarousel .wall .thumbnail {
+    margin-bottom: 10px;
+}
+
+.sgGallery .carousel .label,.sgExtCarousel .label {
+    font-size: 13px;
+    position: absolute;
+    bottom: 5px;
+    left: 10px;
+    padding: 0;
+    margin: 0;
+}
+
+.sgGallery .carousel .wallButton,.sgExtCarousel .wallButton {
+    font-size: 10px;
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    padding: 1px 2px;
+    margin: 0;
+    background: #222;
+    border: 1px solid #888;
+    cursor: pointer;
+}
+
+.sgGallery .carousel .label .number,.sgExtCarousel .label .number {
+    color: #b5b5b5;
+}
+
+.sgGallery a {
+    font-size: 100%;
+    text-decoration: none;
+    color: inherit;
+}
+
+.sgGallery a.right,.sgGallery a.left {
+    position: absolute;
+    height: 99%;
+    width: 25%;
+    cursor: pointer;
+    z-index: 10;
+    filter: alpha(opacity = 20);
+    -moz-opacity: 0.2;
+    -khtml-opacity: 0.2;
+    opacity: 0.2;
+}
+
+* html .sgGallery a.right,* html .sgGallery a.left {
+    filter: alpha(opacity = 50);
+}
+
+.sgGallery a.right:hover,.sgGallery a.left:hover {
+    filter: alpha(opacity = 80);
+    -moz-opacity: 0.8;
+    -khtml-opacity: 0.8;
+    opacity: 0.8;
+}
+
+.sgGallery a.left {
+    left: 0;
+    top: 0;
+    background: url('../Images/fleche1.png') no-repeat center left;
+}
+
+* html .sgGallery a.left {
+    background: url('../Images/fleche1.gif') no-repeat center left;
+}
+
+.sgGallery a.right {
+    right: 0;
+    top: 0;
+    background: url('../Images/fleche2.png') no-repeat center right;
+}
+
+* html .sgGallery a.right {
+    background: url('../Images/fleche2.gif') no-repeat center right;
+}
+
+.sgGallery a.open {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.withArrows a.open {
+    position: absolute;
+    top: 0;
+    left: 25%;
+    height: 99%;
+    width: 50%;
+    cursor: pointer;
+    z-index: 10;
+    background: none;
+    -moz-opacity: 0.8;
+    -khtml-opacity: 0.8;
+    opacity: 0.8;
+}
+
+.withArrows a.open:hover {
+    background: url('../Images/open.png') no-repeat center center;
+}
+
+* html .withArrows a.open:hover {
+    background: url('../Images/open.gif') no-repeat center center;
+    filter: alpha(opacity = 80);
+}
+
+/* Gallery Sets */
+.sgGallery a.gallerySelectorBtn {
+    z-index: 15;
+    position: absolute;
+    top: 0;
+    left: 30px;
+    height: 20px;
+    /*width: 100px; background: url('../Images/carousel_btn.gif') no-repeat;*/
+    text-align: center;
+    padding: 0 10px;
+    font-size: 13px;
+    background: #333;
+    color: #fff;
+    cursor: pointer;
+    opacity: .4;
+    -moz-opacity: .4;
+    -khtml-opacity: 0.4;
+    filter: alpha(opacity = 40);
+}
+
+.sgGallery .gallerySelector {
+    z-index: 20;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #000;
+}
+
+.sgGallery .gallerySelector h2 {
+    margin: 0;
+    padding: 10px 20px 10px 20px;
+    font-size: 20px;
+    line-height: 30px;
+    color: #fff;
+}
+
+.sgGallery .gallerySelector .gallerySelectorWrapper {
+    overflow: hidden;
+}
+
+.sgGallery .gallerySelector .gallerySelectorInner div.galleryButton {
+    margin-left: 10px;
+    margin-top: 10px;
+    border: 1px solid #888;
+    padding: 5px;
+    height: 40px;
+    color: #fff;
+    cursor: pointer;
+    float: left;
+}
+
+.sgGallery .gallerySelector .gallerySelectorInner div.hover {
+    background: #333;
+}
+
+.sgGallery .gallerySelector .gallerySelectorInner div.galleryButton div.preview
+    {
+    background: #000;
+    background-position: center center;
+    float: left;
+    border: none;
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
+}
+
+.sgGallery .gallerySelector .gallerySelectorInner div.galleryButton h3 {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.sgGallery .gallerySelector .gallerySelectorInner div.galleryButton p.info
+    {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    font-weight: normal;
+    color: #aaa;
+}

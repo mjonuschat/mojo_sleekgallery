@@ -1,0 +1,4 @@
+plugin.tx_mojosleekgallery {
+    # cat=SleekGallery/Settings/;type=text; label= Settings for SleekGallery
+    settings = timed:false,showArrows:true,embedLinks:true
+}

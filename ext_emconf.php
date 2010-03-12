@@ -1,9 +1,9 @@
 <?php
 
 ########################################################################
-# Extension Manager/Repository config file for ext "rgsmoothgallery".
+# Extension Manager/Repository config file for ext "mojo_sleekgallery".
 #
-# Auto generated 02-03-2010 10:17
+# Auto generated 12-03-2010 15:55
 #
 # Manual updates:
 # Only the data in the array - everything else is removed by next
@@ -11,36 +11,38 @@
 ########################################################################
 
 $EM_CONF[$_EXTKEY] = array(
-    'title' => 'SleekGallery for TYPO3',
-    'description' => 'Slideshow & Gallery. Shows images from directory folders, from records and inside tt_content (Element "Text with images") DAM and tt_news.',
-    'category' => 'plugin',
-    'shy' => 0,
-    'version' => '1.0.0',
-    'dependencies' => '',
-    'conflicts' => '',
-    'priority' => '',
-    'loadOrder' => '',
-    'module' => '',
-    'state' => 'beta',
-    'uploadfolder' => 0,
-    'createDirs' => 'uploads/tx_mojosleekgallery/',
-    'modify_tables' => '',
-    'clearcacheonload' => 0,
-    'lockType' => '',
-    'author' => 'Morton Jonuschat',
-    'author_email' => 'mjonuschat@gmail.com',
-    'author_company' => '',
-    'CGLcompliance' => '',
-    'CGLcompliance_note' => '',
-    'constraints' => array(
-        'depends' => array(
-        ),
-        'conflicts' => array(
-        ),
-        'suggests' => array(
-        ),
-    ),
-    '_md5_values_when_last_written' => 'a:77:{s:9:"ChangeLog";s:4:"5272";s:10:"README.txt";s:4:"ee2d";s:31:"class.tx_rgsmoothgallery_fe.php";s:4:"85e6";s:33:"class.tx_rgsmoothgallery_rgsg.php";s:4:"3502";s:21:"ext_conf_template.txt";s:4:"c9b6";s:12:"ext_icon.gif";s:4:"ecd9";s:17:"ext_localconf.php";s:4:"8220";s:14:"ext_tables.php";s:4:"f8c5";s:14:"ext_tables.sql";s:4:"0d79";s:28:"ext_typoscript_constants.txt";s:4:"3b61";s:18:"flexformDAM_ds.xml";s:4:"6178";s:15:"flexform_ds.xml";s:4:"c433";s:33:"icon_tx_rgsmoothgallery_image.gif";s:4:"ecd9";s:13:"locallang.xml";s:4:"0d92";s:16:"locallang_db.xml";s:4:"1a7d";s:12:"savefile.php";s:4:"cd91";s:14:"t3mootools.txt";s:4:"c2f6";s:7:"tca.php";s:4:"a7aa";s:14:"doc/manual.sxw";s:4:"6028";s:19:"doc/wizard_form.dat";s:4:"fa36";s:20:"doc/wizard_form.html";s:4:"6053";s:15:"pi1/_ce_wiz.gif";s:4:"ecd9";s:14:"pi1/ce_wiz.gif";s:4:"9573";s:36:"pi1/class.tx_rgsmoothgallery_pi1.php";s:4:"3134";s:44:"pi1/class.tx_rgsmoothgallery_pi1_wizicon.php";s:4:"23b7";s:13:"pi1/clear.gif";s:4:"cc11";s:17:"pi1/locallang.xml";s:4:"f748";s:7:"pi1/tmp";s:4:"6c78";s:24:"pi1/static/editorcfg.txt";s:4:"bc8a";s:20:"pi1/static/setup.txt";s:4:"4160";s:26:"res/css/externalThumbs.css";s:4:"6325";s:27:"res/css/externalThumbs2.css";s:4:"c95c";s:22:"res/css/jd.gallery.css";s:4:"8040";s:27:"res/css/jd.galleryColor.css";s:4:"fb23";s:26:"res/css/jd.galleryCool.css";s:4:"fac0";s:25:"res/css/jd.galleryMod.css";s:4:"a71a";s:18:"res/css/layout.css";s:4:"59a9";s:21:"res/css/slightbox.css";s:4:"68cb";s:26:"res/css/slightboxColor.css";s:4:"4211";s:27:"res/css/img/ajax-loader.gif";s:4:"37e2";s:19:"res/css/img/big.gif";s:4:"e438";s:23:"res/css/img/carrow1.gif";s:4:"6994";s:23:"res/css/img/carrow2.gif";s:4:"7502";s:21:"res/css/img/close.gif";s:4:"97ab";s:24:"res/css/img/close9yj.gif";s:4:"5bc0";s:29:"res/css/img/control_pause.png";s:4:"9c20";s:28:"res/css/img/control_play.png";s:4:"3170";s:33:"res/css/img/control_play_blue.png";s:4:"56f5";s:26:"res/css/img/cooldesign.zip";s:4:"4851";s:27:"res/css/img/cooldisplay.png";s:4:"ef80";s:24:"res/css/img/coolnext.gif";s:4:"8045";s:24:"res/css/img/coolplus.gif";s:4:"5a67";s:24:"res/css/img/coolprev.gif";s:4:"ef26";s:20:"res/css/img/disk.png";s:4:"bb6d";s:23:"res/css/img/fleche1.gif";s:4:"a413";s:23:"res/css/img/fleche1.png";s:4:"6193";s:23:"res/css/img/fleche2.gif";s:4:"3c35";s:23:"res/css/img/fleche2.png";s:4:"e0a1";s:20:"res/css/img/left.gif";s:4:"f785";s:33:"res/css/img/loading-bar-black.gif";s:4:"b010";s:34:"res/css/img/loading-bar-black2.gif";s:4:"d552";s:25:"res/css/img/nextlabel.gif";s:4:"485d";s:20:"res/css/img/open.gif";s:4:"15f6";s:20:"res/css/img/open.png";s:4:"c2b2";s:21:"res/css/img/pause.gif";s:4:"f56b";s:20:"res/css/img/play.gif";s:4:"3ad6";s:25:"res/css/img/prevlabel.gif";s:4:"d935";s:23:"res/css/img/printer.png";s:4:"2424";s:21:"res/css/img/right.gif";s:4:"0999";s:20:"res/css/img/save.gif";s:4:"6691";s:29:"res/scripts/HistoryManager.js";s:4:"8948";s:29:"res/scripts/jd.gallery1010.js";s:4:"352d";s:28:"res/scripts/jd.galleryMod.js";s:4:"fa47";s:23:"res/scripts/mootools.js";s:4:"9f73";s:36:"res/scripts/mootools.uncompressed.js";s:4:"de7f";s:29:"res/scripts/mootools.v1.00.js";s:4:"cf85";s:27:"res/scripts/slightbox107.js";s:4:"942d";}',
+	'title' => 'SleekGallery for TYPO3',
+	'description' => 'Slideshow & Gallery. Shows images from directory folders, from records and inside tt_content (Element "Text with images") DAM and tt_news.',
+	'category' => 'plugin',
+	'shy' => 0,
+	'version' => '1.0.3',
+	'dependencies' => '',
+	'conflicts' => '',
+	'priority' => '',
+	'loadOrder' => '',
+	'module' => '',
+	'state' => 'beta',
+	'uploadfolder' => 0,
+	'createDirs' => 'uploads/tx_mojosleekgallery/',
+	'modify_tables' => '',
+	'clearcacheonload' => 0,
+	'lockType' => '',
+	'author' => 'Morton Jonuschat',
+	'author_email' => 'mjonuschat@gmail.com',
+	'author_company' => '',
+	'CGLcompliance' => '',
+	'CGLcompliance_note' => '',
+	'constraints' => array(
+		'depends' => array(
+		),
+		'conflicts' => array(
+		),
+		'suggests' => array(
+		),
+	),
+	'_md5_values_when_last_written' => 'a:74:{s:9:"ChangeLog";s:4:"6038";s:10:"README.txt";s:4:"b2b3";s:21:"ext_conf_template.txt";s:4:"c9b6";s:12:"ext_icon.gif";s:4:"ecd9";s:17:"ext_localconf.php";s:4:"bccf";s:14:"ext_tables.php";s:4:"e529";s:14:"ext_tables.sql";s:4:"e493";s:28:"ext_typoscript_constants.txt";s:4:"a90c";s:29:"Classes/MoJo/SleekGallery.php";s:4:"1a43";s:37:"Classes/MoJo/SleekGallery/Enabler.php";s:4:"f013";s:32:"Classes/MoJo/SleekGallery/Fe.php";s:4:"6bf8";s:37:"Classes/MoJo/SleekGallery/Wizicon.php";s:4:"4722";s:42:"Configuration/Flexforms/flexformDAM_ds.xml";s:4:"edb1";s:39:"Configuration/Flexforms/flexform_ds.xml";s:4:"2975";s:25:"Configuration/TCA/tca.php";s:4:"1342";s:38:"Configuration/TypoScript/editorcfg.txt";s:4:"dff7";s:34:"Configuration/TypoScript/setup.txt";s:4:"a8eb";s:40:"Resources/Private/Language/locallang.xml";s:4:"a578";s:43:"Resources/Private/Language/locallang_db.xml";s:4:"e0b4";s:39:"Resources/Public/CSS/externalThumbs.css";s:4:"6325";s:40:"Resources/Public/CSS/externalThumbs2.css";s:4:"cf07";s:40:"Resources/Public/CSS/jquery.fancybox.css";s:4:"1f00";s:44:"Resources/Public/CSS/jquery.sleekgallery.css";s:4:"a7b5";s:31:"Resources/Public/CSS/layout.css";s:4:"59a9";s:33:"Resources/Public/Icons/ce_wiz.gif";s:4:"9573";s:32:"Resources/Public/Icons/clear.gif";s:4:"cc11";s:57:"Resources/Public/Icons/icon_tx_mojosleekgallery_image.gif";s:4:"ecd9";s:35:"Resources/Public/Images/carrow1.gif";s:4:"6994";s:35:"Resources/Public/Images/carrow2.gif";s:4:"7502";s:36:"Resources/Public/Images/closebox.gif";s:4:"1574";s:36:"Resources/Public/Images/closebox.png";s:4:"f2aa";s:35:"Resources/Public/Images/fleche1.gif";s:4:"a413";s:35:"Resources/Public/Images/fleche1.png";s:4:"6193";s:35:"Resources/Public/Images/fleche2.gif";s:4:"3c35";s:35:"Resources/Public/Images/fleche2.png";s:4:"e0a1";s:45:"Resources/Public/Images/loading-bar-black.gif";s:4:"b010";s:32:"Resources/Public/Images/open.gif";s:4:"15f6";s:32:"Resources/Public/Images/open.png";s:4:"c2b2";s:37:"Resources/Public/Images/remo_bg_e.png";s:4:"bb7d";s:37:"Resources/Public/Images/remo_bg_n.png";s:4:"b80c";s:38:"Resources/Public/Images/remo_bg_ne.png";s:4:"a631";s:38:"Resources/Public/Images/remo_bg_nw.png";s:4:"b03b";s:37:"Resources/Public/Images/remo_bg_s.png";s:4:"1d8a";s:38:"Resources/Public/Images/remo_bg_se.png";s:4:"6ec7";s:38:"Resources/Public/Images/remo_bg_sw.png";s:4:"df78";s:37:"Resources/Public/Images/remo_bg_w.png";s:4:"dbc5";s:35:"Resources/Public/Images/spinner.gif";s:4:"0483";s:42:"Resources/Public/Images/fancybox/blank.gif";s:4:"3254";s:48:"Resources/Public/Images/fancybox/fancy_close.png";s:4:"6e28";s:50:"Resources/Public/Images/fancybox/fancy_loading.png";s:4:"b1d5";s:51:"Resources/Public/Images/fancybox/fancy_nav_left.png";s:4:"3f3e";s:52:"Resources/Public/Images/fancybox/fancy_nav_right.png";s:4:"216e";s:51:"Resources/Public/Images/fancybox/fancy_shadow_e.png";s:4:"fd4f";s:51:"Resources/Public/Images/fancybox/fancy_shadow_n.png";s:4:"18cd";s:52:"Resources/Public/Images/fancybox/fancy_shadow_ne.png";s:4:"63ad";s:52:"Resources/Public/Images/fancybox/fancy_shadow_nw.png";s:4:"c820";s:51:"Resources/Public/Images/fancybox/fancy_shadow_s.png";s:4:"9b9e";s:52:"Resources/Public/Images/fancybox/fancy_shadow_se.png";s:4:"a8af";s:52:"Resources/Public/Images/fancybox/fancy_shadow_sw.png";s:4:"f81c";s:51:"Resources/Public/Images/fancybox/fancy_shadow_w.png";s:4:"59b0";s:53:"Resources/Public/Images/fancybox/fancy_title_left.png";s:4:"1582";s:53:"Resources/Public/Images/fancybox/fancy_title_main.png";s:4:"38da";s:53:"Resources/Public/Images/fancybox/fancy_title_over.png";s:4:"b886";s:54:"Resources/Public/Images/fancybox/fancy_title_right.png";s:4:"6cbe";s:58:"Resources/Public/Images/fancybox/jquery.easing-1.3.pack.js";s:4:"def2";s:58:"Resources/Public/Images/fancybox/jquery.fancybox-1.3.0.css";s:4:"4ec3";s:57:"Resources/Public/Images/fancybox/jquery.fancybox-1.3.0.js";s:4:"d60e";s:62:"Resources/Public/Images/fancybox/jquery.fancybox-1.3.0.pack.js";s:4:"5c16";s:64:"Resources/Public/Images/fancybox/jquery.mousewheel-3.0.2.pack.js";s:4:"e07d";s:51:"Resources/Public/JavaScript/jquery.fancybox.pack.js";s:4:"5c16";s:41:"Resources/Public/JavaScript/jquery.min.js";s:4:"1009";s:50:"Resources/Public/JavaScript/jquery.scrollTo.min.js";s:4:"4aa3";s:50:"Resources/Public/JavaScript/jquery.sleekgallery.js";s:4:"b323";s:62:"Resources/Public/JavaScript/jquery.sleekgallery.transitions.js";s:4:"1074";}',
+	'suggests' => array(
+	),
 );
 
 ?>

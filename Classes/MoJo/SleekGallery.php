@@ -449,7 +449,8 @@ class tx_mojosleekgallery_pi1 extends tslib_pibase
         $advancedSettings .= ($this->config['showPlay']) ? 'showPlay: true,' : '';
         // external thumbs
         $advancedSettings .= ($this->config['externalThumbs']) ? 'useExternalCarousel:true,carouselElement:jQuery("' . $this->config['externalThumbs'] . '"),' : '';
-        #
+        if(substr($advancedSettings,-1,1) == ',')
+            $advancedSettings = substr($advancedSettings,0,-1);
         // js needed to load the gallery and to get it started
         if ($overrideJS != '') {
             $js = $overrideJS;

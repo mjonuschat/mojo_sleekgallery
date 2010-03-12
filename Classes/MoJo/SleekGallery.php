@@ -413,9 +413,10 @@ class tx_mojosleekgallery_pi1 extends tslib_pibase
         $GLOBALS['TSFE']->additionalHeaderData['mojo_sleekgallery'] = $header . '
             <script src="' . $this->getPath( $this->conf['pathToScrollToJS'] ) . '" type="text/javascript"></script>
             <script src="' . $this->getPath( $this->conf['pathToFancyboxJS'] ) . '" type="text/javascript"></script>
-            <script src="' . $this->getPath($this->conf['pathToSleekGalleryJS']) . '" type="text/javascript"></script>
-            <link rel="stylesheet" href="' . $this->getPath($this->conf['pathToFancyboxCSS']) . '" type="text/css" media="screen" />
-            <link rel="stylesheet" href="' . $this->getPath($this->conf['pathToSleekGalleryCSS']) . '" type="text/css" media="screen" />
+            <script src="' . $this->getPath( $this->conf['pathToSleekGalleryJS'] ) . '" type="text/javascript"></script>
+            <script src="' . $this->getPath( $this->conf['pathToSleekGalleryTransitions'] ) . '" type="text/javascript"></script>
+            <link rel="stylesheet" href="' . $this->getPath( $this->conf['pathToFancyboxCSS'] ) . '" type="text/css" media="screen" />
+            <link rel="stylesheet" href="' . $this->getPath( $this->conf['pathToSleekGalleryCSS'] ) . '" type="text/css" media="screen" />
         ';
         if ($this->config['externalControl'] == 1) {
             $externalControl1 = 'var sleekGallery' . $uniqueId . ';';

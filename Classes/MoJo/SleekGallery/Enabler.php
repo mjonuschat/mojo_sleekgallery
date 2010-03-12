@@ -27,6 +27,7 @@ class tx_mojosleekgallery_enabler
         // path to js + css
         $GLOBALS['TSFE']->additionalHeaderData['mojo_sleekgallery'] = $header . '
             <script src="' . $this->getPath($this->conf['pathToSleekGalleryJS']) . '" type="text/javascript"></script>
+            <script src="' . $this->getPath($this->conf['pathToSleekGalleryTransitions']) . '" type="text/javascript"></script>
             <link rel="stylesheet" href="' . $this->getPath($this->conf['pathToSleekGalleryCSS']) . '" type="text/css" media="screen" />
         ';
         return $content;

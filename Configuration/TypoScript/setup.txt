@@ -66,6 +66,7 @@ plugin.tx_mojosleekgallery_pi1 {
     pathTojQuery = EXT:mojo_sleekgallery/Resources/Public/JavaScript/jquery.min.js
     pathToScrollToJS = EXT:mojo_sleekgallery/Resources/Public/JavaScript/jquery.scrollTo.min.js
     pathToSleekGalleryJS = EXT:mojo_sleekgallery/Resources/Public/JavaScript/jquery.sleekgallery.js
+    pathToSleekGalleryTransitions = EXT:mojo_sleekgallery/Resources/Public/JavaScript/jquery.sleekgallery.transitions.js
     pathToSleekGalleryCSS = EXT:mojo_sleekgallery/Resources/Public/CSS/jquery.sleekgallery.css
     pathToFancyboxJS = EXT:mojo_sleekgallery/Resources/Public/JavaScript/jquery.fancybox.pack.js
     pathToFancyboxCSS = EXT:mojo_sleekgallery/Resources/Public/CSS/jquery.fancybox.css

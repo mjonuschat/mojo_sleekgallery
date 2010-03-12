@@ -1,5 +1,5 @@
 /*
- * This file is part of SleekGallery v1.0.2.
+ * This file is part of SleekGallery v1.0.3.
  *
  * SleekGallery is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,7 +17,7 @@
  *
  * SleekGallery is an enhanced version of the SmoothGallery jQuery port "SlickGallery"
  * which has been done by Buttgereit und Heidenreich GmbH - http://www.gute-botschafter.de/
- * 
+ *
  * Main Developer: Morton Jonuschat <mjonuschat@gmail.com> - http://github.com/yabawock
  * Many thanks to:
  * - The jQuery team for the great lib

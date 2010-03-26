@@ -83,6 +83,7 @@ plugin.tx_mojosleekgallery_pi1 {
     lightbox = 0
     showThumbs = 0
     arrows = 0
+    hideCarousel = 0
     hideInfoPane = 0
     thumbOpacity =
     slideInfoZoneOpacity =

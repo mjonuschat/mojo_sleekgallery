@@ -283,16 +283,25 @@
             </TCEforms>
           </slideinfozoneopacity>
 
-                    <externalthumbs>
-                        <TCEforms>
-                            <label>LLL:EXT:mojo_sleekgallery/Resources/Private/Language/locallang.xml:flexform.sheets.advanced.externalthumbs</label>
-                            <config>
-                                <type>input</type>
-                                <size>10</size>
-                                <checkbox></checkbox>
-                            </config>
-                        </TCEforms>
-                    </externalthumbs>
+          <carousel>
+            <TCEforms>
+            <label>LLL:EXT:mojo_sleekgallery/Resources/Private/Language/locallang.xml:flexform.sheets.advanced.carousel</label>
+            <config>
+              <type>check</type>
+            </config>
+            </TCEforms>
+          </carousel>
+
+          <externalthumbs>
+              <TCEforms>
+                  <label>LLL:EXT:mojo_sleekgallery/Resources/Private/Language/locallang.xml:flexform.sheets.advanced.externalthumbs</label>
+                  <config>
+                      <type>input</type>
+                      <size>10</size>
+                      <checkbox></checkbox>
+                  </config>
+              </TCEforms>
+          </externalthumbs>
 
           <externalcontrol>
             <TCEforms>

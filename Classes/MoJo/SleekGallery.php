@@ -115,6 +115,7 @@ class tx_mojosleekgallery_pi1 extends tslib_pibase
         /*
          * Advanced settings
          */
+        $this->config['hideCarousel'] = $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'carousel', 'advanced') ? $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'carousel', 'advanced') : $this->conf['hideCarousel'];
         $this->config['hideInfoPane'] = $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'infopane', 'advanced') ? $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'infopane', 'advanced') : $this->conf['hideInfoPane'];
         $this->config['thumbOpacity'] = $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'thumbopacity', 'advanced') ? $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'thumbopacity', 'advanced') : $this->conf['thumbOpacity'];
         $this->config['slideInfoZoneOpacity'] = $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'slideinfozoneopacity', 'advanced') ? $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'slideinfozoneopacity', 'advanced') : $this->conf['slideInfoZoneOpacity'];
@@ -441,6 +442,7 @@ class tx_mojosleekgallery_pi1 extends tslib_pibase
         $arrows = ($arrowsVal == 1) ? 'true' : 'false';
         // advanced settings (from TS + tab flexform configuration)
         $advancedSettings .= ($this->config['hideInfoPane']) ? 'showInfopane: false,' : '';
+        $advancedSettings .= ($this->config['hideCarousel']) ? 'showCarousel: false,' : '';
         if ($this->config['thumbOpacity'] && $this->config['thumbOpacity'] > 0 && $this->config['thumbOpacity'] <= 1)
             $advancedSettings .= 'thumbOpacity: ' . $this->config['thumbOpacity'] . ',';
         if (! $this->config['hideInfoPane'] && $this->config['slideInfoZoneOpacity'] && $this->config['slideInfoZoneOpacity'] > 0 && $this->config['slideInfoZoneOpacity'] <= 1)

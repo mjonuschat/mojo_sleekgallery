@@ -30,6 +30,7 @@
             <!-- Advanced tab -->
             <label index="flexform.sheets.advanced.title">Advanced settings</label>
             <label index="flexform.sheets.advanced.lightbox">Use Lightbox</label>
+            <label index="flexform.sheets.advanced.lightboxgroups">Enable Lightbox Image Groups</label>
             <label index="flexform.sheets.advanced.arrows">Use Arrows</label>
             <label index="flexform.sheets.advanced.showThumbs">Use Thumbs</label>
             <label index="flexform.sheets.advanced.showPlay">Use Play/Pause-Button</label>
@@ -78,6 +79,7 @@
             <!-- Advanced tab -->
             <label index="flexform.sheets.advanced.title">Erweiterte Einstellungen</label>
             <label index="flexform.sheets.advanced.lightbox">Lightbox</label>
+            <label index="flexform.sheets.advanced.lightboxgroups">Lightbox Bilder-Navigation</label>
             <label index="flexform.sheets.advanced.arrows">Navigation</label>
             <label index="flexform.sheets.advanced.showThumbs">Thumbnails</label>
             <label index="flexform.sheets.advanced.showPlay">Play/Pause-Button</label>
@@ -125,7 +127,8 @@
 
             <!-- Advanced tab -->
             <label index="flexform.sheets.advanced.title">Advanced settings</label>
-            <label index="flexform.sheets.advanced.lightbox">Gebruik Lightbox</label>
+            <label index="flexform.sheets.advanced.lightbox">Gebruik Lightbox arrows</label>
+            <label index="flexform.sheets.advanced.lightboxgroups">Gebruik Lightbox</label>
             <label index="flexform.sheets.advanced.arrows">Gebruik arrows</label>
             <label index="flexform.sheets.advanced.showThumbs">Gebruik thumbnails</label>
             <label index="flexform.sheets.advanced.showPlay">Gebruik Play/Pause-Button</label>
@@ -174,6 +177,7 @@
             <!-- Advanced tab -->
             <label index="flexform.sheets.advanced.title">Paramètres avancés</label>
             <label index="flexform.sheets.advanced.lightbox">Utiliser Lightbox</label>
+            <label index="flexform.sheets.advanced.lightboxgroups">Utiliser les flèches avec Lightbox</label>
             <label index="flexform.sheets.advanced.arrows">Utiliser les flèches</label>
             <label index="flexform.sheets.advanced.showThumbs">Utiliser les miniatures</label>
             <label index="flexform.sheets.advanced.showPlay">Utiliser les boutons Play/Pause</label>

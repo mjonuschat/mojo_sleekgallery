@@ -249,7 +249,15 @@
             </TCEforms>
           </lightbox>
 
-
+          <lightboxgroups>
+            <TCEforms>
+              <label>LLL:EXT:mojo_sleekgallery/Resources/Private/Language/locallang.xml:flexform.sheets.advanced.lightboxgroups</label>
+              <config>
+                <type>check</type>
+                <default>1</default>
+              </config>
+            </TCEforms>
+          </lightboxgroups>
 
           <arrows>
             <TCEforms>

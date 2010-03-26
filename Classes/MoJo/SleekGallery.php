@@ -123,6 +123,7 @@ class tx_mojosleekgallery_pi1 extends tslib_pibase
         $this->config['watermarks'] = $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'watermark', 'advanced') ? $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'watermark', 'advanced') : $this->conf['watermarks'];
         $this->config['limitImagesDisplayed'] = intval($this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'limitImagesDisplayed', 'advanced')) ? intval($this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'limitImagesDisplayed', 'advanced')) : intval($this->conf['limitImagesDisplayed']);
         $this->config['lightbox'] = $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'lightbox', 'advanced') ? $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'lightbox', 'advanced') : $this->conf['lightbox'];
+        $this->config['lightboxgroups'] = $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'lightboxgroups', 'advanced') ? $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'lightbox', 'advanced') : $this->conf['lightboxgroups'];
         $this->config['showThumbs'] = $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'showThumbs', 'advanced') ? $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'showThumbs', 'advanced') : $this->conf['showThumbs'];
         $this->config['showPlay'] = $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'showPlay', 'advanced') ? $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'showPlay', 'advanced') : $this->conf['showPlay'];
         $this->config['arrows'] = $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'arrows', 'advanced') ? $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'arrows', 'advanced') : $this->conf['arrows'];
@@ -443,6 +444,7 @@ class tx_mojosleekgallery_pi1 extends tslib_pibase
         // advanced settings (from TS + tab flexform configuration)
         $advancedSettings .= ($this->config['hideInfoPane']) ? 'showInfopane: false,' : '';
         $advancedSettings .= ($this->config['hideCarousel']) ? 'showCarousel: false,' : '';
+        $advancedSettings .= ($this->config['lightbox'] && $this->config['lightboxgroups']) ? 'showFancyBoxArrows: true,' : '';
         if ($this->config['thumbOpacity'] && $this->config['thumbOpacity'] > 0 && $this->config['thumbOpacity'] <= 1)
             $advancedSettings .= 'thumbOpacity: ' . $this->config['thumbOpacity'] . ',';
         if (! $this->config['hideInfoPane'] && $this->config['slideInfoZoneOpacity'] && $this->config['slideInfoZoneOpacity'] > 0 && $this->config['slideInfoZoneOpacity'] <= 1)

@@ -81,6 +81,7 @@ plugin.tx_mojosleekgallery_pi1 {
     enablePrintButton = 0
 
     lightbox = 0
+    lightboxgroups = 0
     showThumbs = 0
     arrows = 0
     hideCarousel = 0

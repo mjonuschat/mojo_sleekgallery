@@ -94,6 +94,7 @@ class tx_mojosleekgallery_fe
                 // advanced settings (from TS + tab flexform configuration)
                 $advancedSettings .= ($mojosgConf['hideInfoPane'] == 1) ? 'showInfopane: false,' : '';
                 $advancedSettings .= ($mojosgConf['hideCarousel'] == 1) ? 'showCarousel: false,' : '';
+                $advancedSettings .= ($mojosgConf['lightbox'] == 1 && $mojosgConf['lightboxgroups'] == 1) ? 'showFancyBoxArrows: true,' : '';
                 if ($mojosgConf['thumbOpacity'] && $mojosgConf['thumbOpacity'] > 0 && $mojosgConf['thumbOpacity'] <= 1)
                     $advancedSettings .= 'thumbOpacity: ' . $mojosgConf['thumbOpacity'] . ',';
                 if ($mojosgConf['slideInfoZoneOpacity'] && $mojosgConf['slideInfoZoneOpacity'] && $mojosgConf['slideInfoZoneOpacity'] > 0 && $mojosgConf['slideInfoZoneOpacity'] <= 1)

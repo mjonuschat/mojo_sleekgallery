@@ -449,8 +449,8 @@ class tx_mojosleekgallery_pi1 extends tslib_pibase
         $advancedSettings .= ($this->config['showPlay']) ? 'showPlay: true,' : '';
         // external thumbs
         $advancedSettings .= ($this->config['externalThumbs']) ? 'useExternalCarousel:true,carouselElement:jQuery("' . $this->config['externalThumbs'] . '"),' : '';
-        if(substr($advancedSettings,-1,1) == ',')
-            $advancedSettings = substr($advancedSettings,0,-1);
+        if(substr($advancedSettings,-1,1) != ',')
+            $advancedSettings .= ',';
         // js needed to load the gallery and to get it started
         if ($overrideJS != '') {
             $js = $overrideJS;
@@ -464,9 +464,9 @@ class tx_mojosleekgallery_pi1 extends tslib_pibase
                         try {
                             ' . $externalControl2 . ' sleekGallery' . $uniqueId . ' = jQuery("#sleekGallery' . $uniqueId . '").sleekGallery({
                                 ' . $duration . ',
-                                showArrows: ' . $arrows . ',
-                                embedLinks:' . $lightbox . ',
                                 ' . $advancedSettings . '
+                                showArrows: ' . $arrows . ',
+                                embedLinks:' . $lightbox . '
                             });
                         } catch(error) {
                             window.setTimeout("startGallery' . $uniqueId . '();",2500);

@@ -1,5 +1,5 @@
 /*
- * This file is part of SleekGallery v1.0.3.
+ * This file is part of SleekGallery v1.0.4.
  *
  * SleekGallery is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -239,7 +239,8 @@
                 useHistoryManager: false,
                 customHistoryKey: false,
                 /* Plugins: FancyBox */
-                useFancyBox: true
+                useFancyBox: true,
+                showFancyBoxArrows: false
             },
             initialize: function(element, options) {
                 this.options = jQuery.extend({}, this.options, options);
@@ -417,7 +418,7 @@
                     window.setTimeout(this.showInfoSlideShow.pass(this), 1000);
                 }
                 if (this.options.useFancyBox) {
-                    window.setTimeout(this.makeFancyBox.pass(this), this);
+                    window.setTimeout(this.makeFancyBox.pass(this), 10);
                 }
                 var textShowCarousel = this.printf(this.options.textShowCarousel, this.currentIter+1, this.maxIter);
 
@@ -773,10 +774,26 @@
                     'display': 'block'
                 });
                 this.currentLink.unbind('click').bind('click',function() {
-                    jQuery.fancybox({
-                        'href'          : this.galleryData[this.currentIter].link,
-                        'titleShow'     : false
-                    });
+                    if(this.options.showFancyBoxArrows) {
+                        var galleryData = jQuery.makeArray(this.galleryData);
+                        var moveEntries = galleryData.splice(0,this.currentIter);
+                        jQuery.merge(galleryData,moveEntries);
+                        jQuery.fancybox(jQuery.map(galleryData, function(elem, i) {
+                                return {
+                                    'href'    : elem.link, 
+                                    'title'   : 'Image ' +  (i + 1) + ' / ' + galleryData.length
+                                };
+                            }), {
+                                'titleShow'     : true
+                            }
+                        );
+                    } else {
+                        jQuery.fancybox({
+                            'href'          : this.galleryData[this.currentIter].link,
+                            'titleShow'     : false
+                        });                        
+                    }
+                    return false;
                 }.pass(this));
             },
             flushGallery: function() {

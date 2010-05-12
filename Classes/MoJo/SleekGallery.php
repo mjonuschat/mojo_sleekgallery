@@ -410,14 +410,18 @@ class tx_mojosleekgallery_pi1 extends tslib_pibase
     function getJs ($lightboxVal, $thumbsVal, $arrowsVal, $durationVal, $width, $height, $widthGallery, $heightGallery, $advancedSettings, $uniqueId, $conf, $overrideJS = '')
     {
         $this->conf = $conf;
-        $header = $this->getPath($this->conf['pathTojQuery']) ? '<script src="' . $this->getPath($this->conf['pathTojQuery']) . '" type="text/javascript"></script>' : '';
+        if($this->getPath($this->conf['pathTojQuery']) !== FALSE)
+            $header  = '<script src="' . $this->getPath($this->conf['pathTojQuery']) . '" type="text/javascript"></script>';
+        if($this->getPath($this->conf['pathToScrollToJS']) !== FALSE)
+            $header .= '<script src="' . $this->getPath( $this->conf['pathToScrollToJS'] ) . '" type="text/javascript"></script>';
+        if($this->getPath($this->conf['pathToFancyboxJS']) !== FALSE) {
+            $header .= '<script src="' . $this->getPath( $this->conf['pathToFancyboxJS'] ) . '" type="text/javascript"></script>';
+            $header .= '<link rel="stylesheet" href="' . $this->getPath( $this->conf['pathToFancyboxCSS'] ) . '" type="text/css" media="screen" />';
+        }
         // path to js + css
         $GLOBALS['TSFE']->additionalHeaderData['mojo_sleekgallery'] = $header . '
-            <script src="' . $this->getPath( $this->conf['pathToScrollToJS'] ) . '" type="text/javascript"></script>
-            <script src="' . $this->getPath( $this->conf['pathToFancyboxJS'] ) . '" type="text/javascript"></script>
             <script src="' . $this->getPath( $this->conf['pathToSleekGalleryJS'] ) . '" type="text/javascript"></script>
             <script src="' . $this->getPath( $this->conf['pathToSleekGalleryTransitions'] ) . '" type="text/javascript"></script>
-            <link rel="stylesheet" href="' . $this->getPath( $this->conf['pathToFancyboxCSS'] ) . '" type="text/css" media="screen" />
             <link rel="stylesheet" href="' . $this->getPath( $this->conf['pathToSleekGalleryCSS'] ) . '" type="text/css" media="screen" />
         ';
         if ($this->config['externalControl'] == 1) {
@@ -453,7 +457,7 @@ class tx_mojosleekgallery_pi1 extends tslib_pibase
         $advancedSettings .= ($this->config['showPlay']) ? 'showPlay: true,' : '';
         // external thumbs
         $advancedSettings .= ($this->config['externalThumbs']) ? 'useExternalCarousel:true,carouselElement:jQuery("' . $this->config['externalThumbs'] . '"),' : '';
-        if(substr($advancedSettings,-1,1) != ',')
+        if(strlen(trim($advancedSettings)) && substr($advancedSettings,-1,1) != ',')
             $advancedSettings .= ',';
         // js needed to load the gallery and to get it started
         if ($overrideJS != '') {
@@ -633,6 +637,9 @@ class tx_mojosleekgallery_pi1 extends tslib_pibase
      */
     function getPath ($path)
     {
+        if (trim($path) == '') {
+            return FALSE;
+        }
         if (substr($path, 0, 4) == 'EXT:') {
             $keyEndPos = strpos($path, '/', 6);
             $key = substr($path, 4, $keyEndPos - 4);

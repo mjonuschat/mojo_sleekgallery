@@ -1,5 +1,5 @@
 /*
- * This file is part of SleekGallery v1.0.4.
+ * This file is part of SleekGallery v1.1.1.
  *
  * SleekGallery is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -12,7 +12,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with JonDesign's SmoothGallery; if not, write to the Free Software
+ * along with MoJo's SlickGallery; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  *
  * SleekGallery is an enhanced version of the SmoothGallery jQuery port "SlickGallery"
@@ -34,7 +34,7 @@
         object = args.shift();
         return function() {
             return instance.apply(object, args);
-        }
+        };
     };
     // Plugin definition
     $.fn.extend({
@@ -154,7 +154,7 @@
          * A jQuery port of JonDesign's SmoothGallery 2.1beta1
          * (http://smoothgallery.jondesign.net/)
          *
-         * @version 1.0.2
+         * @version 1.1.1
          * @author Morton Jonuschat <mjonuschat@gmail.com>
          * @copyright (c) 2010 - Morton Jonuschat <mjonuschat@gmail.com>
          * @license GPL v3
@@ -170,8 +170,8 @@
                     }
                 },
                 crossfade: function(oldImage, newImage, oldPos, newPos){
-                    newImage.animate({'opacity': 1}, this.options.fadeDuration, 'linear');
-                    oldImage.animate({'opacity': 0}, this.options.fadeDuration, 'linear');
+                    newImage.animate({'opacity': 1}, { duration : this.options.fadeDuration, queue : false });
+                    oldImage.animate({'opacity': 0}, { duration : this.options.fadeDuration, queue : false });
                 },
                 fadebg: function(oldImage, newImage, oldPos, newPos){
                     oldImage.animate(
@@ -244,6 +244,7 @@
             },
             initialize: function(element, options) {
                 this.options = jQuery.extend({}, this.options, options);
+                jQuery(this).trigger('onInit');
                 this.timerID = null;
                 this.currentIter = 0;
                 this.lastIter = 0;
@@ -260,7 +261,7 @@
                     this.options.useFancyBox = false;
                 }
 
-                if((this.options.activateCarouselScroller || this.options.showCarousel) && !jQuery.isFunction(jQuery.scrollTo)) {
+                if((this.options.activateCarouselScroller || this.options.showCarousel) && !jQuery.isFunction(jQuery.scrollTo)) {
                     this.options.activateCarouselScroller = false;
                     this.options.showCarousel = false;
                 }
@@ -284,7 +285,7 @@
                     this.initHistory();
                 }
 
-                if ((this.options.embedLinks)|(this.options.useFancyBox))
+                if ((this.options.embedLinks)||(this.options.useFancyBox))
                 {
                     this.currentLink = jQuery('<a>').addClass('open').attr({
                         'href' : '#',
@@ -319,6 +320,7 @@
                 currentArrayPlace = this.galleryData.length;
                 options = this.options;
                 jQuery.merge(this.galleryData, this.populateGallery(this.populateFrom, currentArrayPlace));
+                jQuery(this).trigger('onPopulated');
             },
             populateGallery: function (element, startNumber) {
                 var data = [];
@@ -386,7 +388,7 @@
                         currentImg.loaded = false;
                         currentImg.preload = function() {
                             if(!this.loaded) {
-                                imgLoader = jQuery('<img>').attr('src', this.source).bind('load', this, function(event){
+                                imgLoader = jQuery('<img>').bind('load', this, function(event){
                                     event.data.loaded = true;
                                     event.data.css({
                                         'backgroundImage' : "url('" + event.data.source + "')"
@@ -394,6 +396,7 @@
                                     event.data.width = jQuery(this).attr('width');
                                     event.data.height = jQuery(this).attr('height');
                                 });
+                                imgLoader.attr('src', this.source);
                             }
                         };
                     } else {
@@ -408,6 +411,7 @@
                 jQuery(element).replaceWith(newElement);
             },
             startSlideShow: function () {
+                jQuery(this).trigger('onStart');
                 this.loadingElement.css({'display':'none'});
                 this.lastIter = this.maxIter - 1;
                 this.currentIter = 0;
@@ -432,6 +436,7 @@
                 }
             },
             nextItem: function () {
+                jQuery(this).trigger('onNextCalled');
                 this.nextIter = this.currentIter+1;
                 if (this.nextIter >= this.maxIter) {
                     this.nextIter = 0;
@@ -440,6 +445,7 @@
                 this.goTo(this.nextIter);
             },
             prevItem: function() {
+                jQuery(this).trigger('onPreviousCalled');
                 this.nextIter = this.currentIter-1;
                 if (this.nextIter <= -1) {
                     this.nextIter = this.maxIter - 1;
@@ -452,7 +458,7 @@
                 if(this.options.preloader) {
                     this.galleryElements[num].preload();
                     if (num==0) {
-                        this.galleryElements[this.maxIter - 1].preload();
+                      this.galleryElements[this.maxIter - 1].preload();
                     } else {
                         this.galleryElements[num - 1].preload();
                     }
@@ -477,6 +483,7 @@
                 this.prepareTimer();
             },
             changeItem: function(num) {
+                jQuery(this).trigger('onStartChanging');
                 this.galleryInit = 0;
                 if (this.currentIter != num) {
                     for(i=0;i<this.maxIter;i++) {
@@ -497,6 +504,7 @@
                     this.carouselBtn.html(textShowCarousel).attr('title', textShowCarousel);
                 }
                 this.doSlideShow.pass(this)();
+                jQuery(this).trigger('onChanged');
             },
             clearTimer: function() {
                 if (this.options.timed) {
@@ -510,9 +518,10 @@
             },
             doSlideShow: function(position) {
                 if (this.galleryInit == 1) {
-                    imgPreloader = jQuery('<img/>').attr('src', this.galleryData[0].image).bind('load', this, function(event) {
-                        event.data.startSlideShow();
-                    });
+                    imgPreloader = jQuery('<img/>').bind('load', function(event) {
+                        this.startSlideShow();
+                    }.pass(this));
+                    imgPreloader.attr('src', this.galleryData[0].image)
 
                     if(this.options.preloader) {
                         this.galleryElements[0].preload();
@@ -577,7 +586,7 @@
                 }
             },
             flushCarousel: function() {
-                this.thumbnailElements.each(function(element) {
+                jQuery.each(this.thumbnailElements, function(index, element) {
                     element.remove();
                     element = null;
                 });
@@ -591,6 +600,7 @@
                 }
             },
             showCarousel: function () {
+                jQuery(this).trigger('onShowCarousel');
                 this.carouselContainer.animate({
                     'opacity': this.options.carouselMaximizedOpacity,
                     'top': 0
@@ -601,11 +611,13 @@
                         this.carouselContainer.bind('mouseleave', this, function() {
                             this.carouselWrapper.stop();
                             this.carouselElement.scroll = null;
+                            jQuery(this).trigger('onCarouselShown');
                         }.pass(this));
                     }.pass(this)
                 });
             },
             hideCarousel: function () {
+                jQuery(this).trigger('onHideCarousel');
                 var targetTop = this.options.carouselMinimizedHeight - this.carouselContainer.normalHeight;
                 this.carouselContainer.animate({
                     'opacity': this.options.carouselMinimizedOpacity,
@@ -615,6 +627,7 @@
                         this.carouselActive = false;
                         this.carouselElement.scroll = null;
                         this.carouselWrapper.stop();
+                        jQuery(this).trigger('onCarouselHidden');
                     }.pass(this)
                 });
             },
@@ -710,20 +723,27 @@
                 window.setTimeout(this.showInfoSlideShow.pass(this), 500);
             },
             showInfoSlideShow: function() {
-                this.slideInfoZone.stop();
-                jQuery('h2', this.slideInfoZone).html(this.galleryData[this.currentIter].title);
-                jQuery('p', this.slideInfoZone).html(this.galleryData[this.currentIter].description);
-                if(this.options.slideInfoZoneSlide) {
-                    this.slideInfoZone.css({'opacity':0 , 'height': 0});
-                    this.slideInfoZone.animate({'opacity': this.options.slideInfoZoneOpacity, 'height': this.slideInfoZone.normalHeight});
-                } else {
-                    this.slideInfoZone.css({'opacity':0}).animate({'opacity': this.options.slideInfoZoneOpacity});
-                }
-                if (this.options.showCarousel) {
-                    this.centerCarouselOn(this.currentIter);
+                jQuery(this).trigger('onShowInfopane');
+                if(this.slideInfoZone.css('opacity') == 0) {
+                    this.slideInfoZone.stop();
+                    jQuery('h2', this.slideInfoZone).html(this.galleryData[this.currentIter].title);
+                    jQuery('p', this.slideInfoZone).html(this.galleryData[this.currentIter].description);
+                    if(this.options.slideInfoZoneSlide) {
+                        this.slideInfoZone.css({'opacity':0 , 'height': 0});
+                        this.slideInfoZone.animate({'opacity': this.options.slideInfoZoneOpacity, 'height': this.slideInfoZone.normalHeight});
+                    } else {
+                        this.slideInfoZone.css({'opacity':0}).animate({'opacity': this.options.slideInfoZoneOpacity});
+                    }
+                    if (this.options.showCarousel) {
+                        this.centerCarouselOn(this.currentIter);
+                    }
                 }
             },
             hideInfoSlideShow: function(num) {
+                jQuery(this).trigger('onHideInfopane');
+                if(!num) {
+                    num = 0;
+                }
                 this.slideInfoZone.stop();
                 if(this.options.slideInfoZoneSlide) {
                     this.slideInfoZone.animate({'opacity': 0, 'height': 0}, {'complete': this.changeItem.pass(this, num)});
@@ -780,7 +800,7 @@
                         jQuery.merge(galleryData,moveEntries);
                         jQuery.fancybox(jQuery.map(galleryData, function(elem, i) {
                                 return {
-                                    'href'    : elem.link, 
+                                    'href'    : elem.link,
                                     'title'   : 'Image ' +  (i + 1) + ' / ' + galleryData.length
                                 };
                             }), {
@@ -791,13 +811,13 @@
                         jQuery.fancybox({
                             'href'          : this.galleryData[this.currentIter].link,
                             'titleShow'     : false
-                        });                        
+                        });
                     }
                     return false;
                 }.pass(this));
             },
             flushGallery: function() {
-                this.galleryElements.each(function(element) {
+                jQuery.each(this.galleryElements, function(index, element) {
                     element.remove();
                     element = null;
                 });
@@ -823,7 +843,9 @@
                 this.doSlideShow(1);
             },
             initHistory: function() {
+                jQuery(this).trigger('onHistoryInit');
                 // TODO: Find a jQuery history plugin
+                jQuery(this).trigger('onHistoryInited');
             },
             /**
              * @author Dav Glass <dav.glass@yahoo.com>

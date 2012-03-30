@@ -213,7 +213,7 @@ class tx_mojosleekgallery_pi1 extends tslib_pibase
      */
     function endGallery ()
     {
-        $content = '</div></div>';
+        $content = '</div></div></div>';
         if (is_array($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['mojo_sleekgallery']['extraEndGalleryHook'])) {
             foreach ($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['mojo_sleekgallery']['extraEndGalleryHook'] as $_classRef) {
                 $_procObj = & t3lib_div::getUserObj($_classRef);
